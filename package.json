@@ -1,5 +1,5 @@
 {
-  "name": "egg-rabbitmq",
+  "name": "egg-rabbitmqjs",
   "version": "1.0.0",
   "description": "rabbitmq plgin for egg.js",
   "eggPlugin": {
@@ -40,19 +40,20 @@
     "app.js",
     "agent.js",
     "config",
-    "app"
+    "app",
+    "lib"
   ],
   "ci": {
     "version": "8, 10"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-rabbitmq.git"
+    "url": "git+https://github.com/stoneM2017/egg-rabbitmq.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/stoneM2017/egg-rabbitmq/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-rabbitmq#readme",
+  "homepage": "https://github.com/stoneM2017/egg-rabbitmq#readme",
   "author": "maq",
   "license": "MIT"
 }
