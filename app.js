@@ -31,7 +31,7 @@ function createRabbitMQ(config, app) {
         app.coreLogger.info('[egg-rabbitmq] channel closed');
     })
 
-    client.on('ch_error', () => {
+    client.on('ch_error', (error) => {
         app.coreLogger.error('[egg-rabbitmq] channel error:', error);
     })
 
