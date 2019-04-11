@@ -12,11 +12,11 @@ function createRabbitMQ(config, app) {
     const client = new RabbitMQ(config);
     
     client.on('connect', connection => {
-        app.coreLogger.info('[egg-rabbitmq] server connected! connection=' + connection.connection.connection.stream.localAddress + ':' + connection.connection.connection.stream.localPort);
+        app.coreLogger.info('[egg-rabbitmq] server connected! connection=' + connection.connection.stream.localAddress + ':' + connection.connection.stream.localPort);
     })
     
-    client.on('close', () => {
-        app.coreLogger.info('[egg-rabbitmq] connection closed');
+    client.on('close', error => {
+        app.coreLogger.info('[egg-rabbitmq] connection closed due to error:', error);
     })
 
     client.on('error', error => {
@@ -24,14 +24,14 @@ function createRabbitMQ(config, app) {
     })
 
     client.on('ch_open', channel => {
-        app.coreLogger.info('[egg-rabbitmq] channel opened! channel=' + channel.channel.connection.stream.localAddress + ':' + channel.channel.connection.stream.localPort);
+        app.coreLogger.info('[egg-rabbitmq] channel opened!');
     });
 
     client.on('ch_close', () => {
         app.coreLogger.info('[egg-rabbitmq] channel closed');
     })
 
-    client.on('ch_error', (error) => {
+    client.on('ch_error', error => {
         app.coreLogger.error('[egg-rabbitmq] channel error:', error);
     })
 
