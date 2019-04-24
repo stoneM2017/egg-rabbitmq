@@ -66,6 +66,6 @@ config.rabbitmq = {
   ```
   ## Usage
   ```js
-  let message = xxxx;
+  let message = {...};
   this.app.rabbitmq.get('producer').publish("EXCHANGE_NAME", message.Key, Buffer.from(JSON.stringify(message)), { priority: message.Priority, persistent: true, mandatory: true });
   ```
