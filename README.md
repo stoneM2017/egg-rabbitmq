@@ -1,7 +1,7 @@
 # egg-rabbitmq
-rabbitmq plugin for egg
+rabbitmq plugin for egg.js
 # Install
-npm i egg-rabbitmqjs --save
+$ npm i egg-rabbitmqjs --save
 # Configuration
 ## Multiple Instances
 ```js
