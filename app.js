@@ -8,7 +8,6 @@ module.exports = app => {
 }
 
 function createRabbitMQ(config, app) {
-    assert(config.url && config.exchange && config.bindings);
     const client = new RabbitMQ(config);
     
     client.on('connect', connection => {
