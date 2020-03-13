@@ -17,7 +17,13 @@ exports.rabbitmq = {
     //          options: { 
     //              durable: true
     //          },
-    //          deadLetterExchange: "xxx",
+    //      },
+    //      deadLetterExchange: {
+    //          name: "xxx",
+    //          type: "direct",
+    //          options: { 
+    //              durable: true
+    //          },
     //      },
     //      bindings: [
     //          { queue: "queuename", key: "key" }
@@ -32,7 +38,13 @@ exports.rabbitmq = {
     //          options: { 
     //              durable: true
     //          },
-    //          deadLetterExchange: "xxx",
+    //      },
+    //      deadLetterExchange: {
+    //          name: "xxx",
+    //          type: "direct",
+    //          options: {
+    //              durable: true
+    //          },
     //      },
     //      bindings: [
     //          { queue: "queuename", key: "key" }

@@ -16,8 +16,14 @@ exports.rabbitmq = {
                 type: "direct",
                 options: { 
                     durable: true
-                },
-                deadLetterExchange: "xxx",
+                }
+            },
+            deadLetterExchange: {
+                name: "xxx",
+                type: "direct",
+                options: {
+                    durable: true
+                }
             },
             bindings: [
                 { queue: "queuename", key: "key", options:{} }
@@ -31,8 +37,14 @@ exports.rabbitmq = {
                 type: "direct",
                 options: { 
                     durable: true
-                },
-                deadLetterExchange: "xxx",
+                }
+            },
+            deadLetterExchange: {
+                name: "xxx",
+                type: "direct",
+                options: {
+                    durable: true
+                }
             },
             bindings: [
                 { queue: "queuename", key: "key", options:{} }
@@ -55,7 +67,13 @@ config.rabbitmq = {
               options: {
                   durable: true
               },
-              deadLetterExchange: "DLX_EXCHANGE",
+          },
+          deadLetterExchange: {
+              name: "DLX_EXCHANGE",
+              type: "direct",
+              options: {
+                  durable: true
+              },
           },
           bindings: [
               { queue: "QUEUE_NAME", key: "KEY", options: { exclusive: false, durable: true, maxPriority: 10, deadLetterExchange: "DLX_EXCHANGE" } },
