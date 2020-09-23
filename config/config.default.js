@@ -17,6 +17,9 @@ exports.rabbitmq = {
     //          options: { 
     //              durable: true
     //          },
+    //          bindings: [
+    //              { queue: "queuename", key: "key" }
+    //          ],
     //      },
     //      deadLetterExchange: {
     //          name: "xxx",
@@ -24,10 +27,10 @@ exports.rabbitmq = {
     //          options: { 
     //              durable: true
     //          },
+    //          bindings: [
+    //              { queue: "queuename", key: "key" }
+    //          ],
     //      },
-    //      bindings: [
-    //          { queue: "queuename", key: "key" }
-    //      ],
     //   },
     //   instance2: {
     //     url: 'amqp://localhost',
@@ -38,6 +41,9 @@ exports.rabbitmq = {
     //          options: { 
     //              durable: true
     //          },
+    //          bindings: [
+    //              { queue: "queuename", key: "key" }
+    //          ],
     //      },
     //      deadLetterExchange: {
     //          name: "xxx",
@@ -45,10 +51,10 @@ exports.rabbitmq = {
     //          options: {
     //              durable: true
     //          },
+    //          bindings: [
+    //              { queue: "queuename", key: "key" }
+    //          ],
     //      },
-    //      bindings: [
-    //          { queue: "queuename", key: "key" }
-    //      ],
     //   },
     // },
 };

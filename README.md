@@ -16,18 +16,21 @@ exports.rabbitmq = {
                 type: "direct",
                 options: { 
                     durable: true
-                }
+                },
+                bindings: [
+                    { queue: "queuename", key: "key", options:{} }
+                ],
             },
             deadLetterExchange: {
                 name: "xxx",
                 type: "direct",
                 options: {
                     durable: true
-                }
+                },
+                bindings: [
+                    { queue: "queuename", key: "key", options:{} }
+                ],
             },
-            bindings: [
-                { queue: "queuename", key: "key", options:{} }
-            ],
         },
         instance2: {
             url: 'amqp://localhost',
@@ -37,18 +40,21 @@ exports.rabbitmq = {
                 type: "direct",
                 options: { 
                     durable: true
-                }
+                },
+                bindings: [
+                    { queue: "queuename", key: "key", options:{} }
+                ],
             },
             deadLetterExchange: {
                 name: "xxx",
                 type: "direct",
                 options: {
                     durable: true
-                }
+                },
+                bindings: [
+                    { queue: "queuename", key: "key", options:{} }
+                ],
             },
-            bindings: [
-                { queue: "queuename", key: "key", options:{} }
-            ],
         },
     },
 };
@@ -67,6 +73,9 @@ config.rabbitmq = {
               options: {
                   durable: true
               },
+              bindings: [
+                  { queue: "QUEUE_NAME", key: "KEY", options: { exclusive: false, durable: true, maxPriority: 10, deadLetterExchange: "DLX_EXCHANGE" } },
+              ],
           },
           deadLetterExchange: {
               name: "DLX_EXCHANGE",
@@ -74,10 +83,10 @@ config.rabbitmq = {
               options: {
                   durable: true
               },
+              bindings: [
+                  { queue: "DLX_QUEUE_NAME", key: "KEY", options: { exclusive: false, durable: true, maxPriority: 10, deadLetterExchange: "DLX_EXCHANGE" } },
+              ],
           },
-          bindings: [
-              { queue: "QUEUE_NAME", key: "KEY", options: { exclusive: false, durable: true, maxPriority: 10, deadLetterExchange: "DLX_EXCHANGE" } },
-          ],
       },
     }
   };
