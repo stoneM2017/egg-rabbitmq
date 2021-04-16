@@ -10,6 +10,10 @@ module.exports = app => {
 function createRabbitMQ(config, app) {
     const client = new RabbitMQ(config);
     
+    client.on('error', error => {
+        app.coreLogger.error('[egg-rabbitmq] error:', error);
+    })
+
     client.on('connect', connection => {
         app.coreLogger.info('[egg-rabbitmq] server connected! connection=' + connection.connection.stream.localAddress + ':' + connection.connection.stream.localPort);
     })
@@ -18,7 +22,7 @@ function createRabbitMQ(config, app) {
         app.coreLogger.info('[egg-rabbitmq] connection closed due to error:', error);
     })
 
-    client.on('error', error => {
+    client.on('conn_error', error => {
         app.coreLogger.error('[egg-rabbitmq] connection error:', error);
     })
 

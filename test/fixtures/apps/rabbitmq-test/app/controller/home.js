@@ -8,15 +8,11 @@ class HomeController extends Controller {
   }
 
   async publish() {
-    let err = await this.app.rabbitmq.get('producer').publish("Test_Exchange", "Test", Buffer.from(JSON.stringify(this.ctx.request.body)), {persistence: true, mandatory: true});
+    let err = await this.app.rabbitmq.get('consumer').publish("Test_Exchange", "Test", Buffer.from(JSON.stringify(this.ctx.request.body)), {persistence: true, mandatory: true});
     if (err) {
       console.log("Publish msg failed, error:", err);
       throw("could not publish message");
     }
-
-    let msg = await this.app.rabbitmq.get('consumer').get("Test_Queue", {});
-    await this.app.rabbitmq.get('consumer').ack(msg);
-    this.ctx.body = JSON.parse(msg.content);
   }
 }
 
